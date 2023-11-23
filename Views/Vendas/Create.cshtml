@@ -1,0 +1,53 @@
+﻿@model Dez.Models.Venda
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Nova Venda</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdFarmaceutico" class="control-label"></label>
+                <select asp-for="IdFarmaceutico" class="form-control" asp-items="ViewBag.IdFarmaceutico"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProduto" class="control-label"></label>
+                <select asp-for="IdProduto" class="form-control" asp-items="ViewBag.IdProduto"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCliente" class="control-label"></label>
+                <select asp-for="IdCliente" class="form-control" asp-items="ViewBag.IdCliente"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="qntd" class="control-label"></label>
+                <input asp-for="qntd" class="form-control" />
+                <span asp-validation-for="qntd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="total" class="control-label"></label>
+                <input asp-for="total" class="form-control" />
+                <span asp-validation-for="total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
