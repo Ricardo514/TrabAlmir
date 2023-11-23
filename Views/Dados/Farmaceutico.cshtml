@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<Dez.Models.Farmaceutico>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Farmaceutico";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Farmaceuticos</h1>
+<h1>Farmaceutico</h1>
 
 <p>
-    <a asp-action="Create">Novo Farmaceutico</a>
-    <a asp-area="" asp-controller="Dados" asp-action="Farmaceutico">Gerar Farmaceuticos</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -23,7 +22,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+<tbody>
         @foreach (var item in Model)
         {
             <tr>

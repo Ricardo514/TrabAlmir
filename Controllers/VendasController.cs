@@ -66,6 +66,13 @@ namespace Dez.Controllers
         {
             if (ModelState.IsValid)
             {
+                Produto produto = _context.Produtos.Find(venda.IdProduto);
+                produto.estoque = produto.estoque - venda.qntd;
+                venda.total = venda.qntd * produto.valor;
+                _context.Update(produto);
+
+               
+
                 _context.Add(venda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<Dez.Models.Venda>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "VndC";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Vendas</h1>
+<h1>Listagem de Vendas</h1>
+
+<h4>Utilizando Filtros</h4>
 
 <p>
-    <a asp-action="Create">Nova venda</a>
-    <a asp-area="" asp-controller="Consulta" asp-action="VndC">Listagem por remédio</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -51,9 +52,9 @@
                 @Html.DisplayFor(modelItem => item.total)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }

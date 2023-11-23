@@ -38,6 +38,31 @@ namespace Dez.Controllers
 
             return View(contexto.Clientes.OrderBy(o => o.nome).ToList());
         }
+
+        public IActionResult Farmaceutico()
+        {
+            Random randNum = new Random();
+
+            string[] Nome1 = { "Almir", "Matheus", "Rodolfo", "Jordan", "Geovani" };
+            string[] Nome2 = { "Renata", "Claudete", "Heloisa", "Maria Augusta", "Mariana" };
+            string[] Cpf1 = { "038819470", "408717590", "368023130", "030260939", "36867169" };
+            string[] Cpf2 = { "592043300", "160259360", "227270670", "659356540", "23048180" };
+            //string[] Cid1 = { "Assis", "Maracai", "Candido-Mota", "Florinea", "Tarumã" };
+            //string[] Cid2 = { "Londrina", "Marilia", "Garça", "Pedrinhas", "Cruzalia" };
+
+            for (int i = 0; i < 10; i++)
+            {
+                Farmaceutico farmaceutico = new Farmaceutico();
+                farmaceutico.nome = (i % 2 == 0) ? Nome1[i / 2] : Nome2[i / 2];
+                farmaceutico.cpf = (i % 2 == 0) ? Cpf1[i / 2] : Cpf2[i / 2];
+                contexto.Farmaceuticos.Add(farmaceutico);
+
+            }
+            contexto.SaveChanges();
+
+            return View(contexto.Farmaceuticos.OrderBy(o => o.nome).ToList());
+        }
+
     }
 }
 
